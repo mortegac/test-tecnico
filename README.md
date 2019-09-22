@@ -11,31 +11,31 @@ Listado de mensajes, que cuenrtan con un título, mensaje y fecha.
 
 # Estructura de carpetas
 
-├── src
-│   ├── components
-│   │   ├── commons
-│   │   └── sections
-│   │
-│   ├── constants
-│   │   ├── colorPalette.js
-│   │   └── config.js
-│   │
-│   ├── navigation
-│   │   ├── NavigationService.js
-│   │   └── rootNavigation.js
-│   │
-│   ├── services
-│   │   ├── firebase.js
-│   │   ├── post.services.js
-│   │   └── users.services.js
-│   │
-│   └── store
-│       ├── errors
-│       ├── loading
-│       ├── posts
-│       ├── users
-│       ├── store.js
-│       └── rootReducer.js
+.- ├── src
+.- │   ├── components
+.- │   │   ├── commons
+.- │   │   └── sections
+.- │   │
+.- │   ├── constants
+.- │   │   ├── colorPalette.js
+.- │   │   └── config.js
+.- │   │
+.- │   ├── navigation
+.- │   │   ├── NavigationService.js
+.- │   │   └── rootNavigation.js
+.- │   │
+.- │   ├── services
+.- │   │   ├── firebase.js
+.- │   │   ├── post.services.js
+.- │   │   └── users.services.js
+.- │   │
+.- │   └── store
+.- │       ├── errors
+.- │       ├── loading
+.- │       ├── posts
+.- │       ├── users
+.- │       ├── store.js
+.- │       └── rootReducer.js
 
 
 # Enviroment:
