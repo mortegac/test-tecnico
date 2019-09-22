@@ -33,10 +33,9 @@ Listado de mensajes, que cuenrtan con un título, mensaje y fecha.
 │       ├── errors
 │       ├── loading
 │       ├── posts
-│       ├── rootReducer.js
+│       ├── users
 │       ├── store.js
-│       └── users
-
+│       └── rootReducer.js
 
 
 # Enviroment:
