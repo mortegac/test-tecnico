@@ -47,8 +47,8 @@ class LoginScreen extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            email: 'm@m.cl',
-            password: '123456',
+            email: '',
+            password: '',
             validateEmail: true,
             statusInternet: null
         };

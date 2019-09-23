@@ -1,18 +1,18 @@
 import React from 'react';
-import {Text} from 'react-native';
+// import {Text} from 'react-native';
 import styled from 'styled-components/native';
-import moment from 'moment';
+// import moment from 'moment';
 
 import {APP_BUTTON, APP_GRAY_TEXT, APP_TEAL_BLUE, APP_BLACK} from '../../constants/colorPalette.js';
 
-const timeFormat='h:mm:ss a';
-const dateFormat='DD MMM, YYYY';
+// const timeFormat='h:mm:ss a';
+// const dateFormat='DD MMM, YYYY';
 const _CardInfo= (props)=> {
     return(
 
             <Container>
                 <Body>
-                    <Title>ass{props.title}</Title>
+                    <Title>{props.title}</Title>
                     <Message textColor={ APP_GRAY_TEXT }>{props.message}</Message>
                 </Body>
 

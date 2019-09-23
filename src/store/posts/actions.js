@@ -1,8 +1,38 @@
+
 import _ from 'lodash';
 import { POST_GET } from './constants';
 import { loadingStart, loadingFinished } from '../loading/actions';
 import { errorsAdd } from '../errors/actions';
 import services from '../../services/post.services';
+
+
+
+// export const setPostFb = (payload) => {
+
+// 	return async (dispatch, getState, { getFirebase, getFirestore }) => {
+// 		try{
+// 			dispatch(loadingStart('posts-set-Fb'));
+
+// 			const firestore = getFirestore();
+// 			firestore.collection('post').add({
+// 				...payload,
+// 				date: new Date()
+// 			}).then( () => {
+// 				dispatch({ type: POST_SET, payload });
+
+// 			}).catch( (e) => {
+// 				dispatch(errorsAdd({error:e, module:'posts-set-Fb'}));
+// 			});
+
+
+
+			
+// 		}catch(e){
+// 			dispatch(errorsAdd({error:e, module:'posts-set-Fb'}));
+// 			dispatch(loadingFinished('posts-set-Fb'));
+// 		}
+// 	};
+// };
 
 export const getPost = (payload) => {
 
@@ -44,12 +74,6 @@ export const getPost = (payload) => {
 		}
 	};
 };
-
-// export const getPost = payload => ({
-// 	type: types.POST_GET,
-// 	payload
-// });
-
 
 export default {
 	getPost

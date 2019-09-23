@@ -63,7 +63,6 @@ redirect(route) {
        { 
          
           posts && posts.map( (item, index) => {
-            console.log('-- item --', item);
             if(item.title){
               return (
               

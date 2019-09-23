@@ -39,7 +39,7 @@ export const getUserServices = async (data) => {
 
 export const setUserServices = async (data) => {
     let id='';
-    let docRef = await firestore.collection("users")
+    let docRef = await dbConnect.firestore().collection("users")
         .add({
             email: data.email,
             password: data.password,
