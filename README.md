@@ -54,7 +54,7 @@ Expo CLI 3.0.10 environment info:
     npmPackages:
       expo: ^34.0.1 => 34.0.4
       react: 16.8.3 => 16.8.3
-      react-native: https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz => 0.59.8
+      react-native: 0.59.8
       react-navigation: ^4.0.5 => 4.0.5
     npmGlobalPackages:
       expo-cli: 3.0.10

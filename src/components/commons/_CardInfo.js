@@ -17,7 +17,7 @@ const _CardInfo= (props)=> {
                 </Body>
 
                 <Footer>
-                    <Message textColor={ APP_TEAL_BLUE }>{moment(props.date).format(dateFormat).toString()} {moment(props.date).format(timeFormat).toString()}</Message>
+                    {/* <Message textColor={ APP_TEAL_BLUE }>{props.datemoment(props.date).format(dateFormat).toString()} {moment(props.date).format(timeFormat).toString()}</Message> */}
                     <Message textColor={ APP_BLACK }>{props.id}</Message>
                 </Footer>
 

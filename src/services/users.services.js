@@ -3,8 +3,9 @@ import dbConnect from './firebase';
 
 
 export const getUserServices = async (data) => {
+    // firestore.firestore()
 
-    let docRef = dbConnect.collection("users");
+    let docRef = dbConnect.firestore().collection("users");
     let query = docRef
         .where("email", "==", data.email)
         .where("password", "==", data.password); 
@@ -38,7 +39,7 @@ export const getUserServices = async (data) => {
 
 export const setUserServices = async (data) => {
     let id='';
-    let docRef = await dbConnect.collection("users")
+    let docRef = await firestore.collection("users")
         .add({
             email: data.email,
             password: data.password,

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
+
 import {TouchableOpacity, Text, ScrollView} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import { Spinner } from 'native-base';
 
-import { getPost } from '../../../store/posts/actions';
 import { setLogout } from '../../../store/users/actions';
-import {APP_WHITE, APP_PURPLE, APP_RED} from '../../../constants/colorPalette';
+import {APP_WHITE, APP_PURPLE } from '../../../constants/colorPalette';
 import {_Containner, _CardInfo, } from '../../../components/commons/'
 import {
   Header, 
@@ -15,6 +15,12 @@ import {
 } from './indexStyle';
 
 class HomeScreen extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      dataPost: []
+    };
+  }
   static navigationOptions = ({ navigation }) => {
     return {
         header: () => null,
@@ -33,58 +39,13 @@ class HomeScreen extends Component {
 };
 
 
-
-componentDidMount(){
-
-  this.getDataPost();
-
-
-}
-
-// _getRealTimeData = () => {
-
-//   firebase.database().ref('posts/').on('value', (snapshot) => {
-    
-//     console.log("snapshot: " + snapshot.val());
-//   });
-
-//   console.log('app().name: ', firebase.app().name); 
-//   const realTimeDatabaseRef = firestore.collection("posts").doc("realTime");
-
-//   // const ref = firestore.collection('posts');
-//   // console.log('ref:', ref); 
-
-//   console.log(firestore);
-//   realTimeDatabaseRef.onSnapshot( doc => {
-
-//       console.log('--------------- Realtime Database ---------------');
-
-//       if (doc.exists) console.log(doc.data());
-//       else console.log('El documento no existe');
-
-//       console.log('-----------------------------------------------');
-
-//   })
-
-
-
-// };
-
-getDataPost = () => {
-
-  const { getPost } = this.props;
-  getPost();
-  
-}
-
 redirect(route) {
   this.props.navigation.navigate(route);
-  
 }
 
   render() {
-    const { posts: {list}, loading: {fetching}, loading: {type}, users: {email}, setLogout } = this.props;
-    
+    const { posts, users: {email}, setLogout } = this.props;
+   
     return (
       <_Containner style={{ backgroundColor: '#EFEFF4'}}>
       <Header>
@@ -99,21 +60,17 @@ redirect(route) {
       </Header>
         
       <ScrollView>
-        {
-          (type==='posts-get') ?
-          // (fetching===true) ?
-            <Spinner color={ APP_RED } style={{ padding: 10 }}/>
-          :null
-        }
-     
-        { 
-          Object.keys(list).map((item, index) => {
-            return (
-                           
-                <_CardInfo key={index} {...list[item]}/>
-             
-            )
-          })
+       { 
+         
+          posts && posts.map( (item, index) => {
+            console.log('-- item --', item);
+            if(item.title){
+              return (
+              
+                <_CardInfo key={index} {...item}/>
+              )
+            }
+          })  
         }
 
       </ScrollView>  
@@ -123,26 +80,38 @@ redirect(route) {
 
 }
 
-HomeScreen.propTypes = {
-  getPost: PropTypes.func,
-  setLogout: PropTypes.func,
-  users: PropTypes.object,
-  posts: PropTypes.object,
-  loading: PropTypes.object,
-};
-
 const mapStateToProps = state => {
+  const data = [];
+  const postsFb = state.firestore.data.posts;
+  
+  if(postsFb){
+    Object.entries(postsFb).forEach(doc => {
+
+      data.push({
+        id: doc[0],
+        ...doc[1],
+        //date: doc[1].hasOwnProperty('date') ? new Date(doc[1].date['seconds']*1000): new Date()
+      });
+
+    })
+  }
+
   return { 
     users: state.users,
-    posts: state.posts,
+    posts: data,
     loading: state.loading  
   }
 }; 
 
 const mapDispatchToProps = dispatch => ({
-  getPost: () => dispatch(getPost()),
   setLogout: () => dispatch(setLogout()),
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+      { collection : 'posts'}
+    ])
+  )(HomeScreen);

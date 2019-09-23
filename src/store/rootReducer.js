@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+import { firestoreReducer } from 'redux-firestore';
+import { firebaseReducer } from 'react-redux-firebase';
+
 import loading from './loading/reducer';
 import users from './users/reducer';
 import errors from './errors/reducer';
@@ -9,6 +12,8 @@ export const reducers = () => ({
   ...errors,
   ...users,
   ...posts,
+  firestore: firestoreReducer,
+  firebase: firebaseReducer
 });
 
 export default combineReducers(reducers());

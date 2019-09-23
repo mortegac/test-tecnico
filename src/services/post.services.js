@@ -4,7 +4,7 @@ import dbConnect from './firebase';
 
 export const getPostServices = async () => {
 
-    let docRef = dbConnect.collection("posts");
+    let docRef = dbConnect.firestore().collection("posts");
     let query = docRef
 
     let output = {};
