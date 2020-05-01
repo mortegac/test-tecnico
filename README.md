@@ -1,4 +1,4 @@
-# saltala-test
+# Test Técnico Reactjs - Redux - Firebase
 
 El test consiste en una APP utilizando Expo y Firebase, donde se cumpla con las siguientes funcionalidades:
 
@@ -10,7 +10,7 @@ Listado de mensajes, que cuenrtan con un título, mensaje y fecha.
 
 
 # Estructura de carpetas
-
+```
 .- ├── src
 .- │   ├── components
 .- │   │   ├── commons
@@ -36,10 +36,10 @@ Listado de mensajes, que cuenrtan con un título, mensaje y fecha.
 .- │       ├── users
 .- │       ├── store.js
 .- │       └── rootReducer.js
-
+```
 
 # Enviroment:
-
+```
 Expo CLI 3.0.10 environment info:
     System:
       OS: macOS 10.14.6
@@ -58,18 +58,28 @@ Expo CLI 3.0.10 environment info:
       react-navigation: ^4.0.5 => 4.0.5
     npmGlobalPackages:
       expo-cli: 3.0.10
-
+```
 
 # Tecnologias / Librerias
 
 .-  "expo": "^34.0.1",
+
 .-  "firebase": "^6.6.2",  
+
 .-  "react": "16.8.3",
+
 .-  "react-native": "0.59.8",
+
 .-  "react-navigation": "^4.0.5",
+
 .-  "react-navigation-stack": "^1.8.0",
+
 .-  "react-redux": "^7.1.1",
+
 .-  "redux": "^4.0.4",
+
 .-  "redux-logger": "^3.0.6",
+
 .-  "redux-thunk": "^2.3.0",
+
 .-  "styled-components": "^4.3.2"
